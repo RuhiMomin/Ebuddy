@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./component/head',{data:{title:'Index'}})%>
+</head>
+
+<body>
+    <div class="container pt-5">
+        <div class="row" id="first-div">
+            <div class="offset-sm-3 col-sm-6">
+                <form action="/register" method="post">
+                    <h3><b>Register</b></h3>
+                    <input type="text" name="username" placeholder="enter your name" required><br><br>
+                    <input type="email" name="email" placeholder="enter your email" required><br><br>
+                    <input type="text" name="contact" placeholder="enter your contact" required><br><br>
+                    <input type="password" name="password" id="reg-pswd" placeholder="enter your password"
+                        required><br><br>
+                    <input type="checkbox" onclick="showpassword()">show Password<br><br>
+                    <input type="submit">
+                </form>
+            </div>
+
+        </div>
+        <div class="row" id="second-div">
+            <div class="offset-sm-3 col-sm-6">
+                <form action="/login" method="post">
+                    <h3><b>Login</b></h3>
+                    <input type="email" name="email" placeholder="enter your email" required
+                        value="ruhimomin832@gmail.com"><br><br>
+                    <input type="password" name="password" id="log-pswd" required value="1234567890"><br><br>
+                    <input type="checkbox" onclick="showpassword()">show Password <br><br>
+                    <input type="submit">
+                </form>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 text-center pt-5">
+                <button class="btn btn-primary" id="register">Register</button>
+                <button class="btn btn-primary" id="login">login</button>
+                <a href="/forget">forget password</a>
+            </div>
+        </div>
+    </div>
+    <%- include('./component/footer') %>
+        <script src="/js/regLog.js"></script>
+
+        <script>
+            function showpassword() {
+                let x = document.getElementById("reg-pswd")
+                let y = document.getElementById("log-pswd")
+                if (x.type === "password" || y.type === "password") {
+                    x.type = "text"
+                    y.type = "text"
+                } else {
+                    x.type = "password"
+                    y.type = "password"
+                }
+            }
+        </script>
+
+</body>
+
+</html>
