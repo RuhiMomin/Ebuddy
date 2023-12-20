@@ -43,11 +43,11 @@
                                             <a href="/product/<%= rows.id %>" class="btn btn-info">View</a>
                                             <a href="/product/Update/<%= rows.id %>" class="btn btn-primary">Update</a>
                                             <% if(rows.is_deleted==false && permiss.product_delete){%>
-                                                <form action="/product/delete/<%= rows.id%>" method="get">
+                                                <form action="/product/delete/<%= rows.id%>" method="post">
                                                     <input type="submit" value="Delete" class="btn btn-danger">
                                                 </form>
                                                 <%}else if(rows.is_deleted==true && permiss.product_restore){%>
-                                                    <form action="/product/restore/<%= rows.id%>" method="get">
+                                                    <form action="/product/restore/<%= rows.id%>" method="post">
                                                         <input type="submit" value="Restore" class="btn btn-success">
                                                     </form>
                                                     <%}%>

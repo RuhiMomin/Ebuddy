@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 let session = require('express-session')
-let { routes } = require('./route.js');
+let { routes } = require('./routes.js');
 let config = require('config')
 let port = config.get('port')
 // let cors = require('cors');
@@ -24,7 +24,7 @@ let port = config.get('port')
 
 
 app.use(express.json());                                            //data in body
-app.use(express.urlencoded({ extended: true }));                  //if want to accept user
+app.use(express.urlencoded({ extended: true }));                                                                     //if want to accept user
 app.use(session({
     secret: '#786@54$'
 }));

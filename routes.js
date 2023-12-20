@@ -1,7 +1,7 @@
 let express = require('express');     //api routing
 let routes = express.Router();
 let user = require('./Controller/userController');
-let product = require('./Controller/product')
+let product = require('./Controller/productcontroller')
 let auth = require('./Controller/authController')
 let authMid = require('./Middleware/authMiddleware')
 let { mail } = require('./Helpers/mailer')
@@ -33,8 +33,8 @@ routes.get('/product/', authMid.authM('product_view'), product.viewAll)
 routes.get('/product/:id', authMid.authM('product_view'), product.viewDetails)
 routes.get('/product/update/:id', authMid.authM('product_update'), product.updateUI)
 routes.post('/product/:id', authMid.authM('product_update'), product.update)
-routes.get('/product/delete/:id', authMid.authM('product_delete'), product.pDelete)
-routes.get('/product/restore/:id', authMid.authM('product_restore'), product.pRestore)
+routes.post('/product/delete/:id', authMid.authM('product_delete'), product.pDelete)
+routes.post('/product/restore/:id', authMid.authM('product_restore'), product.pRestore)
 // routes.post('/register', auth.Register)
 
 

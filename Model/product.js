@@ -141,7 +141,7 @@ async function checkDelete(data) {
 }
 
 
-async function pDelete(id) {
+async function pDelete(id,decision) {
     let valid = await checkDelete({ id }).catch((error) =>
      { return { error }; });                            
 
@@ -154,7 +154,7 @@ async function pDelete(id) {
     if (data.is_deleted == decision) {
         return { error: "Product is already deleted" }
     }
-    let updateProduct = await Product.update({ is_deleted: true }, { where: { id } }).catch((err) => {
+    let updateProduct = await Product.update({ is_deleted: decision }, { where: { id } }).catch((err) => {
         return { error: err }
     });
     if (!updateProduct || (updateProduct && updateProduct.error)) {

@@ -75,10 +75,9 @@ async function addUI(req, res) {
 }
 
 async function pDelete(req, res) {
-    let products = await product.pDelete(req.params.id).catch((err) => {
+    let products = await product.pDelete(req.params.id, true).catch((err) => {
         return { error: err }
     })
-    // console.log("pro",products)
     if (!products || (products && products.error)) {
         console.log("runnig on 82 product controller")
         let url = (req.params && req.params.id) ? '/product/' + req.params.id : '/product';
@@ -90,7 +89,7 @@ async function pDelete(req, res) {
 }
 
 async function pRestore(req, res) {
-    let products = await product.pRestore(req.params.id).catch((err) => {
+    let products = await product.pDelete(req.params.id, false).catch((err) => {
         return { error: err }
     })
     // console.log("pro",products)

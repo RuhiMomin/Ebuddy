@@ -34,9 +34,9 @@
             </div>
             <div class="col-sm-12 pt-4">
                 <a href="/product/update/<%= product.id %>" class="btn btn-primary">Update</a>
-                <form method="'delete" action="/product/<%= product.id %>"></form>
-                <input type="submit" value="Delete" class="btn btn-dander mt-4">
-
+                <form method="post" action="/product/delete/<%= product.id %>">
+                    <input type="submit" value="Delete" class="btn btn-danger mt-4">
+                </form>
             </div>
 
         </div>

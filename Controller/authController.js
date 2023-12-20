@@ -1,4 +1,5 @@
 let authModel = require("../Model/authModel")
+
 async function Register(req, res) {
     console.log(req.body)
     let modelData1 = await authModel.register(req.body).catch((err) => {

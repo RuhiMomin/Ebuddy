@@ -40,6 +40,8 @@ async function create(params, userData) {
     }
     return { data: data }
 }
+
+
 async function viewAll(params, permiss) {
     let limit = (params.limit) ? parseInt(params.limit) : 10
     let page = (params.page) ? parseInt(params.page) : 1
@@ -73,7 +75,6 @@ async function viewDetails(id) {
         return { error: "Internal Server Error", status: 500 }
     }
     return { data: data }
-
 }
 async function check(data) {
     let schema = joi.object({

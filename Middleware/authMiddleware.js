@@ -3,6 +3,9 @@ let { sequelizeCon, Model, DataTypes, Op, QueryTypes } = require('../Init/dbconf
 let secure = require('../Helpers/security')
 function authM(permission) {
     return async (req, res, next) => {
+        if (typeof (permission) != "string") {
+            return res.redirect('/login?msg=Unauthorized')
+        }
         let token = req.session.token
         if (typeof (token) != "string") {
             return res.redirect('/login?msg=Unauthorized1')

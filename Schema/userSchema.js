@@ -42,5 +42,5 @@ User.init({
         defaultValue: false
     }
 
-}, { tableName: 'user', ModelName: 'user', sequelize: sequelizeCon });
+}, { tableName: 'user', ModelName: 'User', sequelize: sequelizeCon });
 module.exports = { User } 
